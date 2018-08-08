@@ -1,0 +1,46 @@
+-- EpicorLive10  AR Over 30
+SELECT COALESCE(
+(  
+SELECT
+ SUM(InvoiceBal) as InvoiceBal
+FROM epicorlive10.Erp.invchead
+where OpenInvoice = 1
+AND DATEDIFF(dd, DueDate, getDate()) >= 30
+AND DATEDIFF(dd, duedate, getDate()) < 60
+), 0)  AS InvoiceBal
+-- EpicorLive10  AR Over 30
+
+--AR Over 60
+SELECT COALESCE(
+(  
+SELECT
+ SUM(InvoiceBal) as InvoiceBal
+FROM epicorlive10.Erp.invchead
+where OpenInvoice = 1
+AND DATEDIFF(dd, DueDate, getDate()) >= 60
+AND DATEDIFF(dd, duedate, getDate())  < 90
+), 0)  AS InvoiceBal
+--END AR Over 60
+
+--AR Over 90
+SELECT COALESCE(
+(  
+SELECT
+ SUM(InvoiceBal) as InvoiceBal
+FROM epicorlive10.Erp.invchead
+where OpenInvoice = 1
+AND DATEDIFF(dd, DueDate, getDate()) >= 90
+AND DATEDIFF(dd, duedate, getDate())  < 120
+), 0)  AS InvoiceBal
+
+--End AR over 90
+
+--AR Over 120
+SELECT COALESCE(
+(  
+SELECT
+SUM(invoiceBal) as InvoiceBal
+FROM epicorlive10.Erp.invchead
+where OpenInvoice = 1
+AND DATEDIFF(dd, DueDate, getDate()) >= 120
+), 0)  AS InvoiceBal
