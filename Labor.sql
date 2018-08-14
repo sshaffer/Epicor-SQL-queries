@@ -30,8 +30,6 @@ IF EXISTS ((SELECT * FROM ERP.LaborDtl WHERE Labordtl.ClockinDate = dateADD(day,
 
         WHERE L.ClockInDate = dateADD(DAY, -1, CONVERT(DATE,GETDATE())) AND
               lABORTYPE <> 'I' AND
-              e.Name <> 'Michael Rallo' AND
-              e.Name <> 'Peter Austin' AND
               l.ResourceID <> '' AND
               l.DspClockInTime <> ''
 
@@ -63,6 +61,4 @@ ELSE
              l.OprSeq = jo.OprSeq
         WHERE L.ClockInDate = dateADD(DAY, -3, CONVERT(DATE,GETDATE())) AND
               l.Labortype <> 'I' AND
-              e.Name <> 'Michael Rallo' AND
-              e.Name <> 'Peter Austin'
     END
